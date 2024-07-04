@@ -1,0 +1,35 @@
+﻿@model Nvd_Lession11Db.Models.NvdCategory
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Nvd2210900016Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>NvdCategory</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NvdCateName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NvdCateName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NvdStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NvdStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.NvdCateID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

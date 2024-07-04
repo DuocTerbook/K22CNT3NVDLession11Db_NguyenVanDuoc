@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Nvd_Lession11Db.Models.NvdProduct>
+
+@{
+    ViewBag.Title = "Danh sách sản phẩm";
+    Layout = "~/Views/Shared/_Nvd2210900016Layout.cshtml";
+}
+
+<h2>Danh sách sản phẩm</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NvdID2210900016)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NvdProName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NvdQty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NvdPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NvdActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NvdCategory.NvdCateName)
+        </th>
+        <th>Chức năng</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NvdID2210900016)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NvdProName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NvdQty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NvdPrice)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.NvdActive)*@
+            @if (item.NvdActive == true)
+            {
+                <span style="color:green">Hoạt động</span>
+            }
+            else
+            {
+                <span style="color:red">Không hoạt động</span>
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NvdCategory.NvdCateName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.NvdID2210900016 }) |
+            @Html.ActionLink("Details", "Details", new { id = item.NvdID2210900016 }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.NvdID2210900016 })
+        </td>
+    </tr>
+}
+
+</table>

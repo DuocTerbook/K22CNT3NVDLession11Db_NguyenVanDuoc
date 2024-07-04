@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Nvd_Lession11Db.Models.NvdCategory>
+
+@{
+    ViewBag.Title = "Danh mục sản phẩm";
+    Layout = "~/Views/Shared/_Nvd2210900016Layout.cshtml";
+}
+
+<h2>Danh mục sản phẩm</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<a href="/NvdCategories/Create" class="btn btn-primary my-3">Thêm mới</a> 
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NvdCateID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NvdCateName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NvdStatus)
+        </th>
+        <th>Chức năng</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NvdCateID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NvdCateName)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.NvdStatus)*@
+            @if (item.NvdStatus == true)
+            {
+                <span style="color:green">Hoạt động</span>
+            }
+            else
+            {
+                <span style="color:red">Không hoạt động</span>
+            }
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.NvdCateID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.NvdCateID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.NvdCateID })
+        </td>
+    </tr>
+}
+
+</table>
